@@ -89,19 +89,20 @@ function M.config()
   local icons = require "user.icons"
 
   local servers = {
+    "gopls",
     "lua_ls",
-    "cssls",
-    "html",
+    -- "cssls",
+    -- "html",
     -- "tsserver",
-    "astro",
-    "pyright",
-    "bashls",
-    "lemminx",
-    "jsonls",
-    "yamlls",
-    "marksman",
-    "tailwindcss",
-    "eslint",
+    -- "astro",
+    -- "pyright",
+    -- "bashls",
+    -- "lemminx",
+    -- "jsonls",
+    -- "yamlls",
+    -- "marksman",
+    -- "tailwindcss",
+    -- "eslint",
     -- "rust_analyzer",
   }
 
