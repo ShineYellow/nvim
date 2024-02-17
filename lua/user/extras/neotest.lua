@@ -6,6 +6,7 @@ local M = {
     "vim-test/vim-test",
     "nvim-neotest/neotest-vim-test",
     -- language specific tests
+    "nvim-neotest/neotest-go",
     "marilari88/neotest-vitest",
     "nvim-neotest/neotest-python",
     "nvim-neotest/neotest-plenary",
@@ -28,6 +29,7 @@ function M.config()
   ---@diagnostic disable: missing-fields
   require("neotest").setup {
     adapters = {
+      require("neotest-go"),
       require "neotest-python" {
         dap = { justMyCode = false },
       },
