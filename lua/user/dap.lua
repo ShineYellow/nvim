@@ -4,17 +4,46 @@ local M = {
   dependencies = {
     {
       "rcarriga/nvim-dap-ui",
+      "leoluz/nvim-dap-go",
       "mfussenegger/nvim-dap-python",
       "theHamsta/nvim-dap-virtual-text",
       "nvim-telescope/telescope-dap.nvim",
     },
   },
 }
+
+local function setupui()
+  require("dapui").setup()
+  local dap, dapui = require "dap", require "dapui"
+  dap.listeners.before.attach.dapui_config = function()
+    dapui.open()
+  end
+  dap.listeners.before.launch.dapui_config = function()
+    dapui.open()
+  end
+  dap.listeners.before.event_terminated.dapui_config = function()
+    dapui.close()
+  end
+  dap.listeners.before.event_exited.dapui_config = function()
+    dapui.close()
+  end
+end
+
+local function setup_go()
+  require("dap-go").setup()
+
+  local wk = require "which-key"
+  wk.register {
+    ["<leader>dt"] = { "<cmd>lua require'dap-go'.debug_test()<cr>", "Debug test" },
+    ["<leader>dl"] = { "<cmd>lua require'dap-go'.debug_last_test()<cr>", "Debug last test" },
+  }
+end
+
 function M.config()
   local wk = require "which-key"
   wk.register {
-    ["<leader>dt"] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-    ["<leader>db"] = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
+    ["<leader>db"] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+    -- ["<leader>db"] = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
     ["<leader>dc"] = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
     ["<leader>dC"] = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
     ["<leader>dd"] = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
@@ -28,6 +57,10 @@ function M.config()
     ["<leader>dq"] = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
     ["<leader>dU"] = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
   }
+
+  setupui()
+
+  setup_go()
 end
 
 return M
