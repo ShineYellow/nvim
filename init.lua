@@ -35,6 +35,7 @@ spec "user.project"
 spec "user.toggleterm"
 spec "user.bufdelete"
 -- Extras
+spec "user.extras.autosave"
 spec "user.extras.colorizer"
 -- spec "user.extras.smoothie"
 
