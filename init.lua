@@ -81,4 +81,6 @@ spec "user.extras.harpoon"
 -- spec "user.extras.cellular-automaton"
 -- spec "user.extras.rustacean"
 spec "user.extras.tmux"
+spec "user.extras.gitworktree"
+
 require "user.lazy"
