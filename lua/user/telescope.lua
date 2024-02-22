@@ -162,6 +162,9 @@ function M.config()
         theme = "dropdown",
         initial_mode = "normal",
       },
+      lsp_document_symbols = {
+        symbol_width  = 50,
+      },
     },
     extensions = {
       fzf = {
