@@ -43,5 +43,17 @@ keymap({ "n", "x" }, "j", "gj", opts)
 keymap({ "n", "x" }, "k", "gk", opts)
 keymap("n", "<leader>w", ":lua vim.wo.wrap = not vim.wo.wrap<CR>", opts)
 
+vim.cmd [[
+  function! QuickFixToggle()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+      copen
+    else
+      cclose
+    endif
+  endfunction
+]]
+keymap( "n", "]q" , "<cmd>:cnext<CR>", opts)
+keymap( "n", "[q"  ,"<cmd>:cprev<CR>", opts)
+keymap( "n", "<C-q>" , "<cmd>:call QuickFixToggle()<CR>", opts)
 
 vim.api.nvim_set_keymap('t', '<C-;>', '<C-\\><C-n>', opts)
