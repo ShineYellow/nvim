@@ -12,7 +12,8 @@ M.config = function()
     ["<leader>gk"] = { "<cmd>lua require 'gitsigns'.prev_hunk({navigation_message = false})<cr>", "Prev Hunk" },
     ["<leader>gp"] = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
     ["<leader>gr"] = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-    ["<leader>gl"] = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+    ["<leader>gL"] = { "<cmd>lua require 'gitsigns'.blame_line{full=true}<cr>", "Blame" },
+    ["<leader>gl"] = { "<cmd>lua require 'gitsigns'.toggle_current_line_blame()<cr>", "Blame" },
     ["<leader>gR"] = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
     ["<leader>gs"] = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
     ["<leader>gu"] = {
@@ -63,6 +64,14 @@ M.config = function()
       follow_files = true,
     },
     attach_to_untracked = true,
+    current_line_blame = true, -- Toggle with `:Gitsigns toggle_current_line_blame`
+    current_line_blame_opts = {
+      virt_text = true,
+      virt_text_pos = "eol", -- 'eol' | 'overlay' | 'right_align'
+      delay = 0,
+      ignore_whitespace = false,
+      virt_text_priority = 100,
+    },
     current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
     update_debounce = 200,
     max_file_length = 40000,
