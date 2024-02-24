@@ -54,6 +54,6 @@ vim.cmd [[
 ]]
 keymap( "n", "]q" , "<cmd>:cnext<CR>", opts)
 keymap( "n", "[q"  ,"<cmd>:cprev<CR>", opts)
-keymap( "n", "<C-q>" , "<cmd>:call QuickFixToggle()<CR>", opts)
+-- keymap( "n", "q" , "<cmd>:call QuickFixToggle()<CR>", opts)
 
 vim.api.nvim_set_keymap('t', '<C-;>', '<C-\\><C-n>', opts)
