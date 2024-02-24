@@ -17,7 +17,8 @@ function M.config()
     f = { name = "Find" },
     g = {  
       name = "Git" ,
-      d = { name = "Diff View"},
+      h = { name = "Diff View"},
+      l = { name = "Blame"},
     },
     l = { name = "LSP" },
     p = { name = "Plugins" },
