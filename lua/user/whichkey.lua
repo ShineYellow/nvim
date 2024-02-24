@@ -22,6 +22,7 @@ function M.config()
     l = { name = "LSP" },
     p = { name = "Plugins" },
     t = { name = "Test" },
+    A = { "<cmd>ASToggle<CR>", "AutoSave" },
     a = {
       name = "Tab",
       n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
