@@ -58,6 +58,11 @@ function M.config()
     ["<leader>dU"] = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
   }
 
+vim.keymap.set("n", "<F5>", "<cmd>lua require'dap'.step_into()<CR>")
+vim.keymap.set("n", "<F6>", "<cmd>lua require'dap'.step_over()<CR>")
+vim.keymap.set("n", "<F7>", "<cmd>lua require'dap'.step_out()<CR>")
+vim.keymap.set("n", "<F8>", "<cmd>lua require'dap'.continue()<CR>")
+
   setupui()
 
   setup_go()
