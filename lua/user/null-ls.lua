@@ -12,6 +12,7 @@ function M.config()
     sources = {
       formatting.stylua,
       formatting.prettier,
+      null_ls.builtins.formatting.terraform_fmt,
       -- formatting.prettier.with {
       --   extra_filetypes = { "toml" },
       --   -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
@@ -19,6 +20,8 @@ function M.config()
       -- formatting.eslint,
       -- null_ls.builtins.diagnostics.eslint,
       null_ls.builtins.completion.spell,
+      null_ls.builtins.diagnostics.terraform_validate,
+      null_ls.builtins.diagnostics.tfsec,
     },
   }
 end

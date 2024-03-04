@@ -102,6 +102,7 @@ function M.config()
     "jsonls",
     "yamlls",
     "marksman",
+    "terraformls",
     -- "tailwindcss",
     -- "eslint",
     -- "rust_analyzer",
