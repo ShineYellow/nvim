@@ -7,8 +7,8 @@ function M.config()
   local mappings = {
     [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
     ["w"] = { "<cmd>w!<CR>", "Save" },
-    Q = { "<cmd>confirm q<CR>", "Quit" },
-    q = { "<cmd>:call QuickFixToggle()<CR>", "Quit" },
+    x = { "<cmd>confirm q<CR>", "Quit" },
+    q = { "<cmd>:call QuickFixToggle()<CR>", "QuickFixToggle" },
     h = { "<cmd>nohlsearch<CR>", "NOHL" },
     -- [";"] = { "<cmd>tabnew | terminal<CR>", "Term" },
     v = { "<cmd>vsplit<CR>", "Split" },
