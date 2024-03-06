@@ -39,7 +39,7 @@ function M.config()
       "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
       "Workspace Symbols",
     },
-    ["<leader>le"] = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
+    ["<leader>fq"] = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
   }
 
   vim.api.nvim_create_autocmd("FileType", {
