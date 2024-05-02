@@ -21,8 +21,9 @@ function M.config()
   keymap("n", "<s-h>", "<cmd>lua require('harpoon'):list():select(2)<cr>", opts)
   keymap("n", "<s-j>", "<cmd>lua require('harpoon'):list():select(3)<cr>", opts)
   keymap("n", "<s-d>", "<cmd>lua require('harpoon'):list():select(4)<cr>", opts)
-  keymap("n", "<s-n>", "<cmd>lua require('harpoon'):list():next()<cr>", opts)
-  keymap("n", "<s-p>", "<cmd>lua require('harpoon'):list():prev()<cr>", opts)
+  -- N is for pre occur when searching
+  -- keymap("n", "<s-n>", "<cmd>lua require('harpoon'):list():next()<cr>", opts)
+  -- keymap("n", "<s-p>", "<cmd>lua require('harpoon'):list():prev()<cr>", opts)
 end
 
 function M.mark_file()

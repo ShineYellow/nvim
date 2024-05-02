@@ -15,6 +15,10 @@ local M = {
     "rcasia/neotest-bash",
   },
 }
+local keymap = vim.keymap.set
+local opts = { noremap = true, silent = true }
+keymap( "n", "[n" , "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", opts)
+keymap( "n", "]n"  ,"<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>", opts)
 
 function M.config()
   local wk = require "which-key"
@@ -24,12 +28,16 @@ function M.config()
     ["<leader>td"] = { "<cmd>lua require('neotest').run.run({strategy = 'dap'})<cr>", "Debug Test" },
     ["<leader>ts"] = { "<cmd>lua require('neotest').run.stop()<cr>", "Test Stop" },
     ["<leader>ta"] = { "<cmd>lua require('neotest').run.attach()<cr>", "Attach Test" },
+    ["<leader>to"] = { "<cmd>lua require('neotest').output.open()<cr>", "Test outut preview" },
+    ["<leader>tp"] = { "<cmd>lua require('neotest').output_panel.toggle()<cr>", "Test output panel" },
+    ["<leader>tj"] = { "<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>", "Next Failed" },
+    ["<leader>tk"] = { "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", "Prev Failed" },
   }
 
   ---@diagnostic disable: missing-fields
   require("neotest").setup {
     adapters = {
-      require("neotest-go"),
+      require "neotest-go",
       require "neotest-python" {
         dap = { justMyCode = false },
       },
