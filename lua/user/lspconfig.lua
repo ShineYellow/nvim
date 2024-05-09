@@ -91,6 +91,7 @@ function M.config()
 
   local servers = {
     "gopls",
+    "golangci_lint_ls",
     "lua_ls",
     -- "cssls",
     -- "html",
