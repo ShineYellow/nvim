@@ -35,6 +35,7 @@ function M.config()
       l = { "<cmd>+tabmove<cr>", "Move Right" },
     },
     T = { name = "Treesitter" },
+    M = { name = "Markdown" },
   }
 
   local which_key = require "which-key"
