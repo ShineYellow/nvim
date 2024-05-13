@@ -1,5 +1,5 @@
 local M = {
-  "Pocco81/auto-save.nvim",
+  "okuuva/auto-save.nvim",
 }
 
 M.config = function()
