@@ -1,6 +1,6 @@
 local M = {
   "linrongbin16/gitlinker.nvim",
-  dependencies = { { "nvim-lua/plenary.nvim" } },
+  cmd = "GitLink",
   event = "VeryLazy",
 }
 -- GitLink: generate git link and copy to clipboard.
@@ -12,7 +12,8 @@ function M.config()
   local wk = require "which-key"
   wk.register {
     ["<leader>gy"] = { "<cmd>GitLink!<cr>", "Git link" },
-    ["<leader>gY"] = { "<cmd>GitLink blame<cr>", "Git link blame" },
+    ["<leader>gY"] = { "<cmd>GitLink! remote=upstream<cr>", "Git link" },
+    -- ["<leader>gY"] = { "<cmd>GitLink blame remote=upstream<cr>", "Git link blame" },
   }
 
   require("gitlinker").setup {
