@@ -85,7 +85,15 @@ function M.config()
         "--line-number",
         "--column",
         "--smart-case",
-        -- "--hidden",
+        "--hidden",
+        -- Exclude some patterns from search
+        "--glob=!**/.git/*",
+        "--glob=!**/.idea/*",
+        "--glob=!**/.vscode/*",
+        "--glob=!**/build/*",
+        "--glob=!**/dist/*",
+        "--glob=!**/yarn.lock",
+        "--glob=!**/package-lock.json",
         "--glob=!.git/",
       },
 
@@ -163,7 +171,7 @@ function M.config()
         initial_mode = "normal",
       },
       lsp_document_symbols = {
-        symbol_width  = 50,
+        symbol_width = 50,
       },
     },
     extensions = {
