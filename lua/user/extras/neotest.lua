@@ -1,6 +1,9 @@
 local M = {
   "nvim-neotest/neotest",
   dependencies = {
+    "nvim-neotest/nvim-nio",
+    "antoinemadec/FixCursorHold.nvim",
+    "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     -- general tests
     "vim-test/vim-test",
@@ -17,8 +20,8 @@ local M = {
 }
 local keymap = vim.keymap.set
 local opts = { noremap = true, silent = true }
-keymap( "n", "[n" , "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", opts)
-keymap( "n", "]n"  ,"<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>", opts)
+keymap("n", "[n", "<cmd>lua require('neotest').jump.prev({ status = 'failed' })<CR>", opts)
+keymap("n", "]n", "<cmd>lua require('neotest').jump.next({ status = 'failed' })<CR>", opts)
 
 function M.config()
   local wk = require "which-key"
