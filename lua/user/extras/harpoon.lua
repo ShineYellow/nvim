@@ -28,7 +28,7 @@ end
 
 function M.mark_file()
   local harpoon = require("harpoon")
-  harpoon:list():append()
+  harpoon:list():add()
   vim.notify "󱡅  marked file"
 end
 
