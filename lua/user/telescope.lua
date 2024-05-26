@@ -8,7 +8,7 @@ local M = {
 function M.config()
   local wk = require "which-key"
   wk.register {
-    ["<leader>bb"] = { "<cmd>Telescope buffers previewer=false<cr>", "Find" },
+    ["<leader>bb"] = { "<cmd>lua require('telescope.builtin').buffers({sort_mru=true}) previewer=false<cr>", "Find" },
 
     ["<leader>fb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
@@ -25,7 +25,6 @@ function M.config()
     ["<leader>fR"] = { "<cmd>Telescope registers<cr>", "Registers" },
     ["<leader>fk"] = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     ["<leader>fC"] = { "<cmd>Telescope commands<cr>", "Commands" },
-
     ["<leader>go"] = { "<cmd>Telescope git_status<cr>", "Open changed file" },
     ["<leader>gb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
     ["<leader>gc"] = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
@@ -34,11 +33,6 @@ function M.config()
       "Checkout commit(for current file)",
     },
 
-    ["<leader>ls"] = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    ["<leader>lS"] = {
-      "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>",
-      "Workspace Symbols",
-    },
     ["<leader>fq"] = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
   }
 
@@ -62,6 +56,17 @@ function M.config()
       return tail
     end
     return string.format("%s\t\t%s", tail, parent)
+  end
+
+  local function select_all_but_current(prompt_bufnr)
+    actions.select_all(prompt_bufnr)
+    actions.toggle_selection(prompt_bufnr)
+  end
+
+  local function delete_all_but_current(prompt_bufnr)
+    actions.select_all(prompt_bufnr)
+    actions.toggle_selection(prompt_bufnr)
+    actions.delete_buffer(prompt_bufnr)
   end
 
   require("telescope").setup {
@@ -110,6 +115,10 @@ function M.config()
           ["j"] = actions.move_selection_next,
           ["k"] = actions.move_selection_previous,
           ["q"] = actions.close,
+          ["a"] = actions.toggle_all,
+          ["A"] = select_all_but_current,
+          ["x"] = delete_all_but_current,
+
         },
       },
     },
@@ -132,6 +141,8 @@ function M.config()
         theme = "dropdown",
         previewer = false,
         initial_mode = "normal",
+        select_current = true,
+        -- sort_mru = true,
         mappings = {
           i = {
             ["<C-d>"] = actions.delete_buffer,
