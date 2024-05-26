@@ -10,6 +10,11 @@ function M.config()
   wk.register {
     ["<leader>z"] = { "<cmd>ZenMode<CR>", "Zen Mode" },
   }
+require("zen-mode").toggle({
+  window = {
+    width = 1
+  }
+})
 end
 
 return M
