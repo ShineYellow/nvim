@@ -21,7 +21,7 @@ function M.config()
     ["<leader>fi"] = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
     ["<leader>fl"] = { "<cmd>Telescope resume<cr>", "Last Search" },
     ["<leader>fM"] = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    ["<leader>fr"] = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
+    ["<leader>fr"] = { "<cmd>lua require('telescope.builtin').oldfiles({only_cwd=true}) <cr>", "Recent File" },
     ["<leader>fR"] = { "<cmd>Telescope registers<cr>", "Registers" },
     ["<leader>fk"] = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
     ["<leader>fC"] = { "<cmd>Telescope commands<cr>", "Commands" },

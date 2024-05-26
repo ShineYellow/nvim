@@ -10,13 +10,15 @@ local M = {
 }
 
 function M.config()
-
   local wk = require "which-key"
   wk.register {
     ["<leader>O"] = { "<cmd>Octo<cr>", "Octo" },
   }
 
   require("octo").setup {
+    suppress_missing_scope = {
+      projects_v2 = true,
+    },
     use_local_fs = false, -- use local files on right side of reviews
     enable_builtin = true, -- shows a list of builtin actions when no action is provided
     default_remote = { "upstream", "origin" }, -- order to try remotes
