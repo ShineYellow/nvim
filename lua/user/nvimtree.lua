@@ -24,6 +24,8 @@ function M.config()
     vim.keymap.set("n", "v", api.node.open.vertical, opts "Open: Vertical Split")
     vim.keymap.del("n", "<C-k>", { buffer = bufnr })
     vim.keymap.set("n", "<S-k>", api.node.open.preview, opts "Open Preview")
+    vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
+
   end
 
   local icons = require "user.icons"
@@ -33,6 +35,7 @@ function M.config()
     hijack_netrw = false,
     sync_root_with_cwd = true,
     view = {
+      width = 60,
       relativenumber = true,
     },
     renderer = {
