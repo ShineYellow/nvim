@@ -8,9 +8,12 @@ local M = {
 }
 
 function M.config()
-  local harpoon = require("harpoon")
-  harpoon:setup()
-
+  local harpoon = require "harpoon"
+  harpoon:setup {
+    settings = {
+      save_on_toggle = true,
+    },
+  }
 
   local keymap = vim.keymap.set
   local opts = { noremap = true, silent = true }
@@ -27,7 +30,7 @@ function M.config()
 end
 
 function M.mark_file()
-  local harpoon = require("harpoon")
+  local harpoon = require "harpoon"
   harpoon:list():add()
   vim.notify "󱡅  marked file"
 end
