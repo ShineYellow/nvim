@@ -103,6 +103,7 @@ function M.config()
     "yamlls",
     "marksman",
     "terraformls",
+    "groovyls",
     -- "tailwindcss",
     -- "eslint",
     -- "rust_analyzer",

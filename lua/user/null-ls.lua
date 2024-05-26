@@ -12,7 +12,8 @@ function M.config()
     sources = {
       formatting.stylua,
       formatting.prettier,
-      null_ls.builtins.formatting.terraform_fmt,
+      formatting.terraform_fmt,
+      formatting.npm_groovy_lint,
       -- formatting.prettier.with {
       --   extra_filetypes = { "toml" },
       --   -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
