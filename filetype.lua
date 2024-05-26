@@ -13,3 +13,9 @@ vim.filetype.add({
     ["tsconfig.tsbuildinfo"] = 'json'
   }
 })
+vim.filetype.add({
+  extension = {
+    Jenkinsfile = 'groovy',
+    jenkinsfile = 'groovy'
+  }
+})
