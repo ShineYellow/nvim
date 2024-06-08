@@ -98,7 +98,7 @@ function M.config()
     "lua_ls",
     -- "cssls",
     -- "html",
-    -- "tsserver",
+    "tsserver",
     -- "astro",
     -- "pyright",
     "bashls",
@@ -109,7 +109,7 @@ function M.config()
     "terraformls",
     "groovyls",
     -- "tailwindcss",
-    -- "eslint",
+    "eslint",
     -- "rust_analyzer",
   }
 
