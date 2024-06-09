@@ -92,4 +92,5 @@ spec "user.extras.git.advanced-git-search"
 -- spec "user.extras.gitblame"
 --spec "user.neogit"
 
+spec "user.extras.refactoring"
 require "user.lazy"

@@ -24,6 +24,11 @@ function M.config()
       null_ls.builtins.diagnostics.terraform_validate,
       null_ls.builtins.diagnostics.tfsec,
       null_ls.builtins.diagnostics.golangci_lint,
+      -- code_actions 
+      -- impl
+      --  to use impl, please first install: go install github.com/josharian/impl@latest
+      null_ls.builtins.code_actions.impl,
+      null_ls.builtins.code_actions.refactoring,
     },
   }
 end
