@@ -11,7 +11,7 @@ M.execs = {
   "cssls",
   "html",
   "tsserver",
-  "astro",
+  -- "astro",
   "pyright",
   "bashls",
   "jsonls",
@@ -20,6 +20,7 @@ M.execs = {
   "tailwindcss",
   "rust_analyzer",
   "eslint",
+  "prettier",
 }
 
 function M.config()
