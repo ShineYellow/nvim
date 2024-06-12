@@ -17,14 +17,15 @@ function M.config()
     b = { name = "Buffers" },
     d = { name = "Debug" },
     f = { name = "Find" },
-    g = {  
-      name = "Git" ,
-      h = { name = "Diff View"},
-      l = { name = "Blame"},
+    g = {
+      name = "Git",
+      h = { name = "Diff View" },
+      l = { name = "Blame" },
     },
     l = { name = "LSP" },
     p = { name = "Plugins" },
     t = { name = "Test" },
+    r = { name = "refactoring", mode = { "v", "n" } },
     A = { "<cmd>ASToggle<CR>", "AutoSave" },
     a = {
       name = "Tab",

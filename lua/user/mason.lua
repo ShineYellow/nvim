@@ -20,7 +20,6 @@ M.execs = {
   "tailwindcss",
   "rust_analyzer",
   "eslint",
-  "prettier",
 }
 
 function M.config()

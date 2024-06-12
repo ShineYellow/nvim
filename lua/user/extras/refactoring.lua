@@ -13,17 +13,17 @@ function M.config()
     ["<leader>re"] = {
       "<cmd>lua require('refactoring').refactor('Extract Function')<cr>",
       "Extract Function",
-      { mode = "x" },
+      { mode = "v" },
     },
     ["<leader>rf"] = {
       "<cmd>lua require('refactoring').refactor('Extract Function To File')<cr>",
       "Extract Function To File",
-      { mode = "x" },
+      { mode = "v" },
     },
     ["<leader>rv"] = {
       "<cmd>lua require('refactoring').refactor('Extract Variable')<cr>",
       "Extract Variable",
-      { mode = "x" },
+      { mode = "v" },
     },
     ["<leader>rI"] = {
       "<cmd>lua require('refactoring').refactor('Inline Function')<cr>",
@@ -33,7 +33,7 @@ function M.config()
     ["<leader>ri"] = {
       "<cmd>lua require('refactoring').refactor('Inline Variable')<cr>",
       "Inline Variable",
-      { mode = { "n", "x" } },
+      { mode = { "n", "v" } },
     },
     ["<leader>rb"] = {
       "<cmd>lua require('refactoring').refactor('Extract Block')<cr>",
