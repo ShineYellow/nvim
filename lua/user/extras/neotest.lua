@@ -11,11 +11,13 @@ local M = {
     -- language specific tests
     "nvim-neotest/neotest-go",
     "marilari88/neotest-vitest",
+    "nvim-neotest/neotest-jest",
     "nvim-neotest/neotest-python",
     "nvim-neotest/neotest-plenary",
     "rouge8/neotest-rust",
     "lawrence-laz/neotest-zig",
     "rcasia/neotest-bash",
+    "alfaix/neotest-gtest",
   },
 }
 local keymap = vim.keymap.set
@@ -52,8 +54,18 @@ function M.config()
         dap = { justMyCode = false },
       },
       require "neotest-vitest",
+      require "neotest-jest" {
+        jestCommand = "npm test --",
+        jestConfigFile = "custom.jest.config.ts",
+        env = { CI = true },
+        cwd = function(path)
+          return vim.fn.getcwd()
+        end,
+      },
       require "neotest-zig",
       require "neotest-rust",
+      require "neotest-gtest",
+      require "neotest-bash",
       require "neotest-vim-test" {
         ignore_file_types = { "python", "vim", "lua", "javascript", "typescript" },
       },
