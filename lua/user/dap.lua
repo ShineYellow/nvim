@@ -41,7 +41,12 @@ local M = {
         end,
       },
       "mfussenegger/nvim-dap-python",
-      "nvim-telescope/telescope-dap.nvim",
+      {
+        "nvim-telescope/telescope-dap.nvim",
+        config = function()
+          require("telescope").load_extension "dap"
+        end,
+      },
       {
         "microsoft/vscode-js-debug",
         build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
@@ -118,13 +123,13 @@ function M.config()
     ["<leader>ds"] = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
     ["<leader>dq"] = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
     ["<leader>dU"] = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
+    ["<leader>dl"] = { "<cmd>lua require'telescope'.extensions.dap.list_breakpoints()<cr>", "Quit" },
   }
 
   vim.keymap.set("n", "<F5>", "<cmd>lua require'dap'.step_into()<CR>")
   vim.keymap.set("n", "<F6>", "<cmd>lua require'dap'.step_over()<CR>")
   vim.keymap.set("n", "<F7>", "<cmd>lua require'dap'.step_out()<CR>")
   vim.keymap.set("n", "<F8>", "<cmd>lua require'dap'.continue()<CR>")
-
 end
 
 return M
