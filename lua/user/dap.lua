@@ -111,9 +111,11 @@ function M.config()
   wk.register {
     ["<leader>db"] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
     -- ["<leader>db"] = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-    ["<leader>dc"] = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    ["<leader>dd"] = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
+    ["<leader>dc"] = { "<cmd>lua require'telescope'.extensions.dap.configurations()<cr>", "configurations" },
+    ["<leader>da"] = { "<cmd>lua require'telescope'.extensions.dap.commands()<cr>", "all commands" },
     ["<leader>dC"] = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-    ["<leader>dd"] = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
+    ["<leader>dD"] = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
     ["<leader>dg"] = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
     ["<leader>di"] = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
     ["<leader>do"] = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
@@ -124,6 +126,8 @@ function M.config()
     ["<leader>dq"] = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
     ["<leader>dU"] = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
     ["<leader>dl"] = { "<cmd>lua require'telescope'.extensions.dap.list_breakpoints()<cr>", "Quit" },
+    ["<leader>dv"] = { "<cmd>lua require'telescope'.extensions.dap.variables()<cr>", "variables" },
+    ["<leader>df"] = { "<cmd>lua require'telescope'.extensions.dap.frames()<cr>", "frames" },
   }
 
   vim.keymap.set("n", "<F5>", "<cmd>lua require'dap'.step_into()<CR>")
