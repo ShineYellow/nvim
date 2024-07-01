@@ -82,7 +82,7 @@ spec "user.extras.glow"
 -- git & github
 spec "user.extras.git.gitworktree"
 spec "user.extras.git.octo"
-spec "user.extras.git.gitsigns"
+-- spec "user.extras.git.gitsigns"
 spec "user.extras.git.lazygit"
 spec "user.extras.git.gitblame2"
 spec "user.extras.git.gitlinker"
