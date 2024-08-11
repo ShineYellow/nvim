@@ -98,6 +98,7 @@ function M.config()
     "lua_ls",
     -- "cssls",
     -- "html",
+    "volar",
     "tsserver",
     -- "astro",
     -- "pyright",
@@ -111,7 +112,6 @@ function M.config()
     -- "tailwindcss",
     "eslint",
     -- "rust_analyzer",
-    "vuels",
   }
 
   local default_diagnostic_config = {
