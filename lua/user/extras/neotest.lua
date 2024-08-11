@@ -17,7 +17,7 @@ local M = {
     "rouge8/neotest-rust",
     "lawrence-laz/neotest-zig",
     "rcasia/neotest-bash",
-    "alfaix/neotest-gtest",
+    -- "alfaix/neotest-gtest",
   },
 }
 local keymap = vim.keymap.set
@@ -64,7 +64,7 @@ function M.config()
       },
       require "neotest-zig",
       require "neotest-rust",
-      require "neotest-gtest",
+      -- require "neotest-gtest",
       require "neotest-bash",
       require "neotest-vim-test" {
         ignore_file_types = { "python", "vim", "lua", "javascript", "typescript" },
