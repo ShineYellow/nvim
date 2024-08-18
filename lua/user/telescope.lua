@@ -7,33 +7,32 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>bb"] = { "<cmd>lua require('telescope.builtin').buffers({sort_mru=true}) previewer=false<cr>", "Find" },
-
-    ["<leader>fb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    ["<leader>fc"] = { "<cmd>Telescope colorscheme<cr>", "Colorscheme" },
-    ["<leader>ff"] = { "<cmd>Telescope find_files<cr>", "Find files" },
-    ["<leader>fp"] = { "<cmd>lua require('telescope').extensions.projects.projects()<cr>", "Projects" },
-    ["<leader>ft"] = { "<cmd>Telescope live_grep<cr>", "Find Text" },
-    ["<leader>fs"] = { "<cmd>Telescope grep_string<cr>", "Find String" },
-    ["<leader>fh"] = { "<cmd>Telescope help_tags<cr>", "Help" },
-    ["<leader>fH"] = { "<cmd>Telescope highlights<cr>", "Highlights" },
-    ["<leader>fi"] = { "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", "Media" },
-    ["<leader>fl"] = { "<cmd>Telescope resume<cr>", "Last Search" },
-    ["<leader>fM"] = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
-    ["<leader>fr"] = { "<cmd>lua require('telescope.builtin').oldfiles({only_cwd=true}) <cr>", "Recent File" },
-    ["<leader>fR"] = { "<cmd>Telescope registers<cr>", "Registers" },
-    ["<leader>fk"] = { "<cmd>Telescope keymaps<cr>", "Keymaps" },
-    ["<leader>fC"] = { "<cmd>Telescope commands<cr>", "Commands" },
-    ["<leader>go"] = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-    ["<leader>gb"] = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-    ["<leader>gc"] = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
-    ["<leader>gC"] = {
-      "<cmd>Telescope git_bcommits<cr>",
-      "Checkout commit(for current file)",
+  wk.add {
+    {
+      "<leader>bb",
+      "<cmd>lua require('telescope.builtin').buffers({sort_mru=true}) previewer=false<cr>",
+      desc = "Find",
     },
-
-    ["<leader>fq"] = { "<cmd>Telescope quickfix<cr>", "Telescope Quickfix" },
+    { "<leader>fC", "<cmd>Telescope commands<cr>", desc = "Commands" },
+    { "<leader>fH", "<cmd>Telescope highlights<cr>", desc = "Highlights" },
+    { "<leader>fM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
+    { "<leader>fR", "<cmd>Telescope registers<cr>", desc = "Registers" },
+    { "<leader>fb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+    { "<leader>fc", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme" },
+    { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+    { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help" },
+    { "<leader>fi", "<cmd>lua require('telescope').extensions.media_files.media_files()<cr>", desc = "Media" },
+    { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Keymaps" },
+    { "<leader>fl", "<cmd>Telescope resume<cr>", desc = "Last Search" },
+    { "<leader>fp", "<cmd>lua require('telescope').extensions.projects.projects()<cr>", desc = "Projects" },
+    { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "Telescope Quickfix" },
+    { "<leader>fr", "<cmd>lua require('telescope.builtin').oldfiles({only_cwd=true}) <cr>", desc = "Recent File" },
+    { "<leader>fs", "<cmd>Telescope grep_string<cr>", desc = "Find String" },
+    { "<leader>ft", "<cmd>Telescope live_grep<cr>", desc = "Find Text" },
+    { "<leader>gC", "<cmd>Telescope git_bcommits<cr>", desc = "Checkout commit(for current file)" },
+    { "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Checkout branch" },
+    { "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Checkout commit" },
+    { "<leader>go", "<cmd>Telescope git_status<cr>", desc = "Open changed file" },
   }
 
   vim.api.nvim_create_autocmd("FileType", {
@@ -118,7 +117,6 @@ function M.config()
           ["a"] = actions.toggle_all,
           ["A"] = select_all_but_current,
           ["x"] = delete_all_but_current,
-
         },
       },
     },

@@ -9,42 +9,14 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>re"] = {
-      "<cmd>lua require('refactoring').refactor('Extract Function')<cr>",
-      "Extract Function",
-      { mode = "v" },
-    },
-    ["<leader>rf"] = {
-      "<cmd>lua require('refactoring').refactor('Extract Function To File')<cr>",
-      "Extract Function To File",
-      { mode = "v" },
-    },
-    ["<leader>rv"] = {
-      "<cmd>lua require('refactoring').refactor('Extract Variable')<cr>",
-      "Extract Variable",
-      { mode = "v" },
-    },
-    ["<leader>rI"] = {
-      "<cmd>lua require('refactoring').refactor('Inline Function')<cr>",
-      "Inline Function",
-      { mode = "n" },
-    },
-    ["<leader>ri"] = {
-      "<cmd>lua require('refactoring').refactor('Inline Variable')<cr>",
-      "Inline Variable",
-      { mode = { "n", "v" } },
-    },
-    ["<leader>rb"] = {
-      "<cmd>lua require('refactoring').refactor('Extract Block')<cr>",
-      "Extract Block",
-      { mode = "n" },
-    },
-    ["<leader>rbf"] = {
-      "<cmd>lua require('refactoring').refactor('Extract Block To File')<cr>",
-      "Extract Block To File",
-      { mode = "n" },
-    },
+  wk.add {
+    { "<leader>rI", "<cmd>lua require('refactoring').refactor('Inline Function')<cr>", desc = "Inline Function" },
+    { "<leader>rb", "<cmd>lua require('refactoring').refactor('Extract Block')<cr>", desc = "Extract Block" },
+    { "<leader>rbf", "<cmd>lua require('refactoring').refactor('Extract Block To File')<cr>", desc = "Extract Block To File" },
+    { "<leader>re", "<cmd>lua require('refactoring').refactor('Extract Function')<cr>", desc = "Extract Function" },
+    { "<leader>rf", "<cmd>lua require('refactoring').refactor('Extract Function To File')<cr>", desc = "Extract Function To File" },
+    { "<leader>ri", "<cmd>lua require('refactoring').refactor('Inline Variable')<cr>", desc = "Inline Variable" },
+    { "<leader>rv", "<cmd>lua require('refactoring').refactor('Extract Variable')<cr>", desc = "Extract Variable" },
   }
 
   require("refactoring").setup {

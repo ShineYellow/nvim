@@ -4,10 +4,9 @@ local M = {
 }
 
 function M.config()
-
   local wk = require "which-key"
-  wk.register {
-    ["<leader>e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
+  wk.add {
+    { "<leader>e", "<cmd>NvimTreeToggle<CR>", desc = "Explorer" },
   }
 
   local function my_on_attach(bufnr)
@@ -24,8 +23,7 @@ function M.config()
     vim.keymap.set("n", "v", api.node.open.vertical, opts "Open: Vertical Split")
     vim.keymap.del("n", "<C-k>", { buffer = bufnr })
     vim.keymap.set("n", "<S-k>", api.node.open.preview, opts "Open Preview")
-    vim.keymap.set('n', '?',     api.tree.toggle_help,                  opts('Help'))
-
+    vim.keymap.set("n", "?", api.tree.toggle_help, opts "Help")
   end
 
   local icons = require "user.icons"

@@ -34,9 +34,9 @@ local M = {
           require("dap-go").setup()
 
           local wk = require "which-key"
-          wk.register {
-            ["<leader>dt"] = { "<cmd>lua require'dap-go'.debug_test()<cr>", "Debug test" },
-            ["<leader>dl"] = { "<cmd>lua require'dap-go'.debug_last_test()<cr>", "Debug last test" },
+          wk.add {
+            { "<leader>dl", "<cmd>lua require'dap-go'.debug_last_test()<cr>", desc = "Debug last test" },
+            { "<leader>dt", "<cmd>lua require'dap-go'.debug_test()<cr>", desc = "Debug test" },
           }
         end,
       },
@@ -47,7 +47,6 @@ local M = {
           require("telescope").load_extension "dap"
         end,
       },
-
     },
   },
 }
@@ -56,26 +55,26 @@ local function setup_go() end
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>db"] = { "<cmd>lua require'dap'.toggle_breakpoint()<cr>", "Toggle Breakpoint" },
+  wk.add {
     -- ["<leader>db"] = { "<cmd>lua require'dap'.step_back()<cr>", "Step Back" },
-    ["<leader>dd"] = { "<cmd>lua require'dap'.continue()<cr>", "Continue" },
-    ["<leader>dc"] = { "<cmd>lua require'telescope'.extensions.dap.configurations()<cr>", "configurations" },
-    ["<leader>da"] = { "<cmd>lua require'telescope'.extensions.dap.commands()<cr>", "all commands" },
-    ["<leader>dC"] = { "<cmd>lua require'dap'.run_to_cursor()<cr>", "Run To Cursor" },
-    ["<leader>ds"] = { "<cmd>lua require'dap'.disconnect()<cr>", "Disconnect" },
-    ["<leader>dg"] = { "<cmd>lua require'dap'.session()<cr>", "Get Session" },
-    ["<leader>di"] = { "<cmd>lua require'dap'.step_into()<cr>", "Step Into" },
-    ["<leader>do"] = { "<cmd>lua require'dap'.step_over()<cr>", "Step Over" },
-    ["<leader>du"] = { "<cmd>lua require'dap'.step_out()<cr>", "Step Out" },
-    ["<leader>dp"] = { "<cmd>lua require'dap'.pause()<cr>", "Pause" },
-    ["<leader>dr"] = { "<cmd>lua require'dap'.repl.toggle()<cr>", "Toggle Repl" },
     -- ["<leader>ds"] = { "<cmd>lua require'dap'.continue()<cr>", "Start" },
-    ["<leader>dq"] = { "<cmd>lua require'dap'.close()<cr>", "Quit" },
-    ["<leader>dU"] = { "<cmd>lua require'dapui'.toggle({reset = true})<cr>", "Toggle UI" },
-    ["<leader>dl"] = { "<cmd>lua require'telescope'.extensions.dap.list_breakpoints()<cr>", "Quit" },
-    ["<leader>dv"] = { "<cmd>lua require'telescope'.extensions.dap.variables()<cr>", "variables" },
-    ["<leader>df"] = { "<cmd>lua require'telescope'.extensions.dap.frames()<cr>", "frames" },
+    { "<leader>dC", "<cmd>lua require'dap'.run_to_cursor()<cr>", desc = "Run To Cursor" },
+    { "<leader>dU", "<cmd>lua require'dapui'.toggle({reset = true})<cr>", desc = "Toggle UI" },
+    { "<leader>da", "<cmd>lua require'telescope'.extensions.dap.commands()<cr>", desc = "all commands" },
+    { "<leader>db", "<cmd>lua require'dap'.toggle_breakpoint()<cr>", desc = "Toggle Breakpoint" },
+    { "<leader>dc", "<cmd>lua require'telescope'.extensions.dap.configurations()<cr>", desc = "configurations" },
+    { "<leader>dd", "<cmd>lua require'dap'.continue()<cr>", desc = "Continue" },
+    { "<leader>df", "<cmd>lua require'telescope'.extensions.dap.frames()<cr>", desc = "frames" },
+    { "<leader>dg", "<cmd>lua require'dap'.session()<cr>", desc = "Get Session" },
+    { "<leader>di", "<cmd>lua require'dap'.step_into()<cr>", desc = "Step Into" },
+    { "<leader>dL", "<cmd>lua require'telescope'.extensions.dap.list_breakpoints()<cr>", desc = "Quit" },
+    { "<leader>do", "<cmd>lua require'dap'.step_over()<cr>", desc = "Step Over" },
+    { "<leader>dp", "<cmd>lua require'dap'.pause()<cr>", desc = "Pause" },
+    { "<leader>dq", "<cmd>lua require'dap'.close()<cr>", desc = "Quit" },
+    { "<leader>dr", "<cmd>lua require'dap'.repl.toggle()<cr>", desc = "Toggle Repl" },
+    { "<leader>ds", "<cmd>lua require'dap'.disconnect()<cr>", desc = "Disconnect" },
+    { "<leader>du", "<cmd>lua require'dap'.step_out()<cr>", desc = "Step Out" },
+    { "<leader>dv", "<cmd>lua require'telescope'.extensions.dap.variables()<cr>", desc = "variables" },
   }
 
   vim.keymap.set("n", "<F5>", "<cmd>lua require'dap'.step_into()<CR>")

@@ -7,10 +7,13 @@ M.config = function()
   require("git-worktree").setup {}
 
   local wk = require "which-key"
-  wk.register {
-    ["<leader>gw"] = { "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", "worktrees" },
-    ["<leader>gK"] = { "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", "create a worktrees" },
-
+  wk.add {
+    {
+      "<leader>gK",
+      "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>",
+      desc = "create a worktrees",
+    },
+    { "<leader>gw", "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", desc = "worktrees" },
   }
 end
 

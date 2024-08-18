@@ -1,21 +1,18 @@
-
 local M = {
   "folke/zen-mode.nvim",
   event = "VeryLazy",
 }
 
 function M.config()
-
   local wk = require "which-key"
-  wk.register {
-    ["<leader>z"] = { "<cmd>ZenMode<CR>", "Zen Mode" },
+  wk.add {
+    { "<leader>z", "<cmd>ZenMode<CR>", desc = "Zen Mode" },
   }
-require("zen-mode").toggle({
-  window = {
-    width = 1
+  require("zen-mode").toggle {
+    window = {
+      width = 1,
+    },
   }
-})
 end
 
 return M
-

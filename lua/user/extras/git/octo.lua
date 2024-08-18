@@ -11,8 +11,9 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>O"] = { "<cmd>Octo<cr>", "Octo" },
+  wk.add {
+        { "<leader>O", "<cmd>Octo<cr>", desc = "Octo" },
+
   }
 
   require("octo").setup {

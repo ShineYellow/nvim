@@ -6,10 +6,9 @@ local M = {
 }
 
 function M.config()
-
   local wk = require "which-key"
-  wk.register {
-    ["<leader>ga"] = { "<cmd>AdvancedGitSearch<cr>", "AdvancedGitSearch" },
+  wk.add {
+    { "<leader>ga", "<cmd>AdvancedGitSearch<cr>", desc = "AdvancedGitSearch" },
   }
   -- optional: setup telescope before loading the extension
   require("telescope").setup {
@@ -50,7 +49,7 @@ function M.config()
         --   },
         -- },
       },
-    }
+    },
   }
 
   require("telescope").load_extension "advanced_git_search"

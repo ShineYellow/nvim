@@ -1,4 +1,3 @@
-
 local M = {
   "kdheepak/lazygit.nvim",
   dependencies = {
@@ -8,9 +7,8 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>gg"] = { "<cmd>LazyGit<CR>", "LazyGit" },
-
+  wk.add {
+    { "<leader>gg", "<cmd>LazyGit<CR>", desc = "LazyGit" },
   }
 end
 

@@ -5,79 +5,74 @@ local M = {
 
 function M.config()
   local mappings = {
-    [";"] = { "<cmd>Alpha<CR>", "Dashboard" },
-    ["w"] = { "<cmd>w!<CR>", "Save" },
-    x = { "<cmd>confirm q<CR>", "Quit" },
-    q = { "<cmd>:call QuickFixToggle()<CR>", "QuickFixToggle" },
-    h = { "<cmd>nohlsearch<CR>", "NOHL" },
-    -- [";"] = { "<cmd>tabnew | terminal<CR>", "Term" },
-    v = { "<cmd>vsplit<CR>", "Split |" },
-    ["|"] = { "<cmd>vsplit<CR>", "Split |" },
-    ["_"] = { "<cmd>split<CR>", "Split --" },
-    b = { name = "Buffers" },
-    d = { name = "Debug" },
-    f = { name = "Find" },
-    g = {
-      name = "Git",
-      h = { name = "Diff View" },
-      l = { name = "Blame" },
-    },
-    l = { name = "LSP" },
-    p = { name = "Plugins" },
-    t = { name = "Test" },
-    r = { name = "refactoring", mode = { "v", "n" } },
-    A = { "<cmd>ASToggle<CR>", "AutoSave" },
-    a = {
-      name = "Tab",
-      n = { "<cmd>$tabnew<cr>", "New Empty Tab" },
-      N = { "<cmd>tabnew %<cr>", "New Tab" },
-      o = { "<cmd>tabonly<cr>", "Only" },
-      h = { "<cmd>-tabmove<cr>", "Move Left" },
-      l = { "<cmd>+tabmove<cr>", "Move Right" },
-    },
-    T = { name = "Treesitter" },
-    M = { name = "Markdown" },
+    { "<leader>;", "<cmd>Alpha<CR>", desc = "Dashboard" },
+    { "<leader>A", "<cmd>ASToggle<CR>", desc = "AutoSave" },
+    { "<leader>M", group = "Markdown" },
+    { "<leader>T", group = "Treesitter" },
+    { "<leader>_", "<cmd>split<CR>", desc = "Split --" },
+    { "<leader>a", group = "Tab" },
+    { "<leader>aN", "<cmd>tabnew %<cr>", desc = "New Tab" },
+    { "<leader>ah", "<cmd>-tabmove<cr>", desc = "Move Left" },
+    { "<leader>al", "<cmd>+tabmove<cr>", desc = "Move Right" },
+    { "<leader>an", "<cmd>$tabnew<cr>", desc = "New Empty Tab" },
+    { "<leader>ao", "<cmd>tabonly<cr>", desc = "Only" },
+    { "<leader>b", group = "Buffers" },
+    { "<leader>d", group = "Debug" },
+    { "<leader>f", group = "Find" },
+    { "<leader>g", group = "Git" },
+    { "<leader>gh", group = "Diff View" },
+    { "<leader>gl", group = "Blame" },
+    { "<leader>h", "<cmd>nohlsearch<CR>", desc = "NOHL" },
+    { "<leader>l", group = "LSP" },
+    { "<leader>p", group = "Plugins" },
+    { "<leader>q", "<cmd>:call QuickFixToggle()<CR>", desc = "QuickFixToggle" },
+    { "<leader>t", group = "Test" },
+    { "<leader>v", "<cmd>vsplit<CR>", desc = "Split |" },
+    { "<leader>w", "<cmd>w!<CR>", desc = "Save" },
+    { "<leader>x", "<cmd>confirm q<CR>", desc = "Quit" },
+    { "<leader>|", "<cmd>vsplit<CR>", desc = "Split |" },
+    { "<leader>r", group = "refactoring", mode = { "n", "v" } },
   }
 
   local which_key = require "which-key"
-  which_key.setup {
-    plugins = {
-      marks = true,
-      registers = true,
-      spelling = {
-        enabled = true,
-        suggestions = 20,
-      },
-      presets = {
-        operators = false,
-        motions = false,
-        text_objects = false,
-        windows = false,
-        nav = false,
-        z = false,
-        g = false,
-      },
-    },
-    window = {
-      border = "rounded",
-      position = "bottom",
-      padding = { 2, 2, 2, 2 },
-    },
-    ignore_missing = true,
-    show_help = false,
-    show_keys = false,
-    disable = {
-      buftypes = {},
-      filetypes = { "TelescopePrompt" },
-    },
-  }
+  which_key.setup ()
+    -- plugins = {
+    --   marks = true,
+    --   registers = true,
+    --   spelling = {
+    --     enabled = true,
+    --     suggestions = 20,
+    --   },
+    --   presets = {
+    --     operators = false,
+    --     motions = false,
+    --     text_objects = false,
+    --     windows = false,
+    --     nav = false,
+    --     z = false,
+    --     g = false,
+    --   },
+    -- },
+    -- window = {
+    --   border = "rounded",
+    --   position = "bottom",
+    --   padding = { 2, 2, 2, 2 },
+    -- },
+    -- ignore_missing = true,
+    -- show_help = false,
+    -- show_keys = false,
+    -- disable = {
+    --   buftypes = {},
+    --   filetypes = { "TelescopePrompt" },
+    -- },
+ 
 
   local opts = {
     mode = "n", -- NORMAL mode
     prefix = "<leader>",
   }
 
-  which_key.register(mappings, opts)
+  which_key.add(mappings, opts)
 end
 
 return M

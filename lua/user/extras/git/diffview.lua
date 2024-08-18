@@ -5,14 +5,14 @@ local M = {
 }
 
 function M.config() end
-  require("dap-go").setup()
+require("dap-go").setup()
 
-  local wk = require "which-key"
-  wk.register {
-    ["<leader>ghh"] = { "<cmd>DiffviewFileHistory %<cr>", "current file history" },
-    ["<leader>ghH"] = { "<cmd>DiffviewFileHistory<cr>", "current branch history" },
-    ["<leader>ghx"] = { "<cmd>DiffviewClose<cr>", "close" },
-    ["<leader>ght"] = { "<cmd>DiffviewToggleFiles<cr>", "Toggle the file panel" },
-  }
+local wk = require "which-key"
+wk.add {
+  { "<leader>ghH", "<cmd>DiffviewFileHistory<cr>", desc = "current branch history" },
+  { "<leader>ghh", "<cmd>DiffviewFileHistory %<cr>", desc = "current file history" },
+  { "<leader>ght", "<cmd>DiffviewToggleFiles<cr>", desc = "Toggle the file panel" },
+  { "<leader>ghx", "<cmd>DiffviewClose<cr>", desc = "close" },
+}
 
 return M

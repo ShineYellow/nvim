@@ -5,8 +5,8 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>Mg"] = { "<cmd>Glow<CR>", "Glow" },
+  wk.add {
+    { "<leader>Mg", "<cmd>Glow<CR>", desc = "Glow" },
   }
 
   require("glow").setup()

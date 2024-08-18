@@ -6,8 +6,9 @@ local M = {
 M.config = function()
 
   local wk = require "which-key"
-  wk.register {
-    ["<leader>glt"] = { "<cmd>ToggleBlame<cr>", "Toggle Blame" },
+  wk.add {
+        { "<leader>glt", "<cmd>ToggleBlame<cr>", desc = "Toggle Blame" },
+
   }
 end
 return M

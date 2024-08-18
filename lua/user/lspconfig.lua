@@ -31,12 +31,12 @@ M.on_attach = function(client, bufnr)
 
   if client.supports_method "textDocument/inlayHint" then
     -- vim.lsp.inlay_hint.enable(bufnr, {})
-     vim.lsp.inlay_hint.enable(true)
+    vim.lsp.inlay_hint.enable(true)
   end
 end
 
 M.toggle_inlay_hints = function()
-    vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled {})
 end
 
 function M.common_capabilities()
@@ -64,31 +64,30 @@ end
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>lf"] = {
+  wk.add {
+    { "<leader>lI", "<cmd>LspInfo<cr>", desc = "Info" },
+    { "<leader>lS", "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", desc = "Workspace Symbols" },
+    { "<leader>la", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action" },
+    { "<leader>ld", "<cmd>lua vim.diagnostic.setloclist()<cr>", desc = "Diagnostic List" },
+    {
+      "<leader>lf",
       "<cmd>lua vim.lsp.buf.format({async = true, filter = function(client) return client.name ~= 'typescript-tools' end})<cr>",
-      "Format",
+      desc = "Format",
     },
-    ["<leader>lI"] = { "<cmd>LspInfo<cr>", "Info" },
-    ["<leader>lj"] = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Next Diagnostic" },
-    ["<leader>lh"] = { "<cmd>lua require('user.lspconfig').toggle_inlay_hints()<cr>", "Hints" },
-    ["<leader>lk"] = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Prev Diagnostic" },
-    ["<leader>ld"] = { "<cmd>lua vim.diagnostic.setloclist()<cr>", "Diagnostic List" },
-    ["<leader>la"] = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action" },
-    ["<leader>ll"] = { "<cmd>lua vim.lsp.codelens.run()<cr>", "CodeLens Action" },
-    ["<leader>lr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-    ["<leader>li"] = { "<cmd>Telescope lsp_incoming_calls<cr>", "Incoming Calls" },
-    ["<leader>lo"] = { "<cmd>Telescope lsp_outgoing_calls<cr>", "Outgoing Calls" },
-    ["<leader>ls"] = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-    ["<leader>lS"] = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Workspace Symbols" },
+    { "<leader>lh", "<cmd>lua require('user.lspconfig').toggle_inlay_hints()<cr>", desc = "Hints" },
+    { "<leader>li", "<cmd>Telescope lsp_incoming_calls<cr>", desc = "Incoming Calls" },
+    { "<leader>lj", "<cmd>lua vim.diagnostic.goto_next()<cr>", desc = "Next Diagnostic" },
+    { "<leader>lk", "<cmd>lua vim.diagnostic.goto_prev()<cr>", desc = "Prev Diagnostic" },
+    { "<leader>ll", "<cmd>lua vim.lsp.codelens.run()<cr>", desc = "CodeLens Action" },
+    { "<leader>lo", "<cmd>Telescope lsp_outgoing_calls<cr>", desc = "Outgoing Calls" },
+    { "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<cr>", desc = "Rename" },
+    { "<leader>ls", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
   }
 
-  wk.register {
-    ["<leader>la"] = {
-      name = "LSP",
-      a = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Code Action", mode = "v" },
-    },
-  }
+  -- wk.add {
+  --   { "<leader>la", group = "LSP" },
+  --   { "<leader>laa", "<cmd>lua vim.lsp.buf.code_action()<cr>", desc = "Code Action", mode = "v" },
+  -- }
 
   local lspconfig = require "lspconfig"
   local icons = require "user.icons"
