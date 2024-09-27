@@ -10,8 +10,8 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.register {
-    ["<leader>MM"] = { "<cmd>MarkdownPreview<CR>", "MarkdownPreview" },
+  wk.add {
+     { "<leader>MM", "<cmd>MarkdownPreview<CR>", desc = "MarkdownPreview" },
   }
 
 end
