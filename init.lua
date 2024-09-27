@@ -36,7 +36,7 @@ spec "user.extras.colorizer"
 -- spec "user.extras.smoothie"
 
 spec "user.extras.neoscroll"
-spec "user.extras.copilot"
+-- spec "user.extras.copilot"
 spec "user.extras.avante"
 -- spec "user.extras.modicator"
 -- spec "user.extras.rainbow"
