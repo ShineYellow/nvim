@@ -10,7 +10,7 @@ function M.config()
     { "<leader>M", group = "Markdown" },
     { "<leader>T", group = "Treesitter" },
     { "<leader>_", "<cmd>split<CR>", desc = "Split --" },
-    { "<leader>a", group = "Tab" },
+    -- { "<leader>a", group = "Tab" },
     { "<leader>aN", "<cmd>tabnew %<cr>", desc = "New Tab" },
     { "<leader>ah", "<cmd>-tabmove<cr>", desc = "Move Left" },
     { "<leader>al", "<cmd>+tabmove<cr>", desc = "Move Right" },
