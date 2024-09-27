@@ -5,13 +5,13 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
-  wk.add {
-    {
-      "<leader>aa",
-      "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
-      desc = "Find Tabs",
-    },
-  }
+  -- wk.add {
+  --   {
+  --     "<leader>aa",
+  --     "<cmd>lua require('telescope').extensions['telescope-tabs'].list_tabs(require('telescope.themes').get_dropdown{previewer = false, initial_mode='normal', prompt_title='Tabs'})<cr>",
+  --     desc = "Find Tabs",
+  --   },
+  -- }
 
   require("telescope-tabs").setup {
     show_preview = false,
