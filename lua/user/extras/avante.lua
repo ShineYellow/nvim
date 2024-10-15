@@ -71,9 +71,9 @@ function M.config()
       prev = "[x",
     },
     suggestion = {
-      accept = "<M-l>",
-      next = "<M-]>",
-      prev = "<M-[>",
+      accept = "<C-l>",
+      next = "<C-n>",
+      prev = "<C-p>",
       dismiss = "<C-]>",
     },
     jump = {
