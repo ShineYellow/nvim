@@ -1,10 +1,13 @@
 local M = {
   "yetone/avante.nvim",
+  version = "v0.0.12",
+  -- version = false,
   event = "VeryLazy",
   lazy = false,
   opts = {
     -- add any opts here
   },
+  -- build = "make",
   build = ":AvanteBuild", -- This is optional, recommended tho. Also note that this will block the startup for a bit since we are compiling bindings in Rust.
   dependencies = {
     "stevearc/dressing.nvim",
@@ -42,15 +45,32 @@ local M = {
 }
 
 function M.config()
+  require('copilot').setup ({
+    -- use recommended settings from above
+  })
   require("avante").setup {
   ---@alias Provider "claude" | "openai" | "azure" | "gemini" | "cohere" | "copilot" | string
-  provider = "openai",
+  -- provider = "openai",
+  provider = "copilot",
   auto_suggestions_provider = "copilot",
   openai = {
     endpoint = "https://api.deepbricks.ai/v1/",
-    model = "GPT-4o",
+    model = "Claude-3.5-Sonnet",
     temperature = 0,
     max_tokens = 4096,
+  },
+  copilot = {
+    endpoint = "https://api.githubcopilot.com",
+
+    -- https://github.com/zed-industries/zed/blob/main/crates/copilot/src/copilot_chat.rs
+    model = "claude-3.5-sonnet",
+    -- model = "o1-preview-2024-09-12",
+    -- model = "o1-mini-2024-09-12",
+    proxy = nil, -- [protocol://]host[:port] Use this proxy
+    allow_insecure = false, -- Allow insecure server connections
+    timeout = 30000, -- Timeout in milliseconds
+    temperature = 0,
+    max_tokens = 200000,
   },
   behaviour = {
     auto_suggestions = true, -- Experimental stage
