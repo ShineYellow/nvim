@@ -98,7 +98,7 @@ function M.config()
     -- "cssls",
     -- "html",
     "volar",
-    "tsserver",
+    "ts_ls",
     -- "astro",
     -- "pyright",
     "bashls",
