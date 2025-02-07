@@ -1,6 +1,6 @@
 local M = {
   "yetone/avante.nvim",
-  version = "v0.0.12",
+  version = "v0.0.18",
   -- version = false,
   event = "VeryLazy",
   lazy = false,
